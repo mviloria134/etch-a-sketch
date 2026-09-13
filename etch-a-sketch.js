@@ -4,6 +4,9 @@ const grid_resize_button = document.querySelector(".resize-button");
 const GRID_WIDTH = 960;
 grid.style.width = `${GRID_WIDTH}px`;
 
+function get_random_color() {
+    return `rgb(${Math.random() * (255-100) + 100} ${Math.random() * 0} ${Math.random() * (200-50) + 50} / ${Math.random() * (1-0.25) + 0.25})`;
+}
 
 function create_grid(side_length = 16) {
     clear_grid();
@@ -43,7 +46,7 @@ function get_size_input() {
 
 grid.addEventListener('mouseover', (event) => {
     if (event.target.classList.contains("square")){
-        event.target.style.backgroundColor = "pink";
+        event.target.style.backgroundColor = get_random_color();
     }
 });
 
