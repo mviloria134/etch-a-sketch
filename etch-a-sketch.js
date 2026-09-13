@@ -1,14 +1,16 @@
 const grid = document.querySelector("#grid");
+const grid_resize_button = document.querySelector(".resize-button");
 
 const GRID_WIDTH = 960;
 grid.style.width = `${GRID_WIDTH}px`;
 
-function create_grid(width = 16, height = 16) {
+
+function create_grid(side_length = 16) {
     clear_grid();
 
-    const squareWidth = Math.floor(GRID_WIDTH/width);
-    for (let i = 0; i < width; i++) {
-        for (let j = 0; j < height; j++) {
+    const squareWidth = Math.floor(GRID_WIDTH/side_length);
+    for (let i = 0; i < side_length; i++) {
+        for (let j = 0; j < side_length; j++) {
             const square = document.createElement('div');
             grid.append(square);
             square.style.width = `${squareWidth}px`;
@@ -24,13 +26,33 @@ function clear_grid() {
     }
 }
 
+function get_size_input() {
+    let size;
+    function isNotValidInput(response) {
+        return  !Number.isInteger(response) || response > 100 || response < 0;
+    }
+    do {
+        size = Number(prompt("How many squares should each size of the grid have? (between 1 and 100)"));
+        if (isNotValidInput(size)) {
+            alert("Not a valid number. Try again");
+        }
+    } while (isNotValidInput(size));
+
+    return size;
+}
+
 grid.addEventListener('mouseover', (event) => {
     event.target.style.backgroundColor = "pink";
 });
 
+
 grid.addEventListener('mouseout', (event) => {
     setTimeout(() => event.target.style.backgroundColor = "aliceblue", 750)
-    
+});
+
+grid_resize_button.addEventListener('click', () => {
+    const size = get_size_input();
+    create_grid(size);
 });
 
 create_grid();
