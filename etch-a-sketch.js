@@ -42,7 +42,9 @@ function get_size_input() {
 }
 
 grid.addEventListener('mouseover', (event) => {
-    event.target.style.backgroundColor = "pink";
+    if (event.target.classList.contains("square")){
+        event.target.style.backgroundColor = "pink";
+    }
 });
 
 grid_resize_button.addEventListener('click', () => {
