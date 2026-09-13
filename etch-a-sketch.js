@@ -16,4 +16,13 @@ function create_grid(width = 16, height = 16) {
     }
 }
 
+grid.addEventListener('mouseover', (event) => {
+    event.target.style.backgroundColor = "pink";
+});
+
+grid.addEventListener('mouseout', (event) => {
+    setTimeout(() => event.target.style.backgroundColor = "aliceblue", 750)
+    
+});
+
 create_grid();
