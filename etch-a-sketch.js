@@ -4,6 +4,8 @@ const GRID_WIDTH = 960;
 grid.style.width = `${GRID_WIDTH}px`;
 
 function create_grid(width = 16, height = 16) {
+    clear_grid();
+
     const squareWidth = Math.floor(GRID_WIDTH/width);
     for (let i = 0; i < width; i++) {
         for (let j = 0; j < height; j++) {
@@ -13,6 +15,12 @@ function create_grid(width = 16, height = 16) {
             square.style.height = `${squareWidth}px`;
             square.classList.add("square");
         }
+    }
+}
+
+function clear_grid() {
+    while (grid.firstChild) {
+        grid.removeChild(grid.firstChild);
     }
 }
 
