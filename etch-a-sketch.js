@@ -45,14 +45,10 @@ grid.addEventListener('mouseover', (event) => {
     event.target.style.backgroundColor = "pink";
 });
 
-
-grid.addEventListener('mouseout', (event) => {
-    setTimeout(() => event.target.style.backgroundColor = "aliceblue", 750)
-});
-
 grid_resize_button.addEventListener('click', () => {
     const size = get_size_input();
-    create_grid(size);
+    if (size)
+        create_grid(size);
 });
 
 create_grid();
