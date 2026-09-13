@@ -47,8 +47,10 @@ grid.addEventListener('mouseover', (event) => {
 
 grid_resize_button.addEventListener('click', () => {
     const size = get_size_input();
-    if (size)
+
+    if (size) {
         create_grid(size);
+    }
 });
 
 create_grid();
