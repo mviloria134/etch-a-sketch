@@ -23,9 +23,10 @@
     flex: none;
 }
 
-.resize-button {
+button {
     padding: 0.5em;
     font-size: 18px;
+    margin: 0.5em
 }
 
 .resize-button:hover {

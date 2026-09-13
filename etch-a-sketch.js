@@ -1,5 +1,6 @@
 const grid = document.querySelector("#grid");
 const grid_resize_button = document.querySelector(".resize-button");
+const grid_reset_button = document.querySelector(".reset-button");
 
 const GRID_WIDTH = 960;
 grid.style.width = `${GRID_WIDTH}px`;
@@ -26,6 +27,12 @@ function create_grid(side_length = 16) {
 function clear_grid() {
     while (grid.firstChild) {
         grid.removeChild(grid.firstChild);
+    }
+}
+
+function reset_grid() {
+    for (const square of grid.children) {
+        square.style.backgroundColor = "aliceblue";
     }
 }
 
@@ -57,5 +64,7 @@ grid_resize_button.addEventListener('click', () => {
         create_grid(size);
     }
 });
+
+grid_reset_button.addEventListener('click', () => reset_grid());
 
 create_grid();
