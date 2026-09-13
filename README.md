@@ -1,1 +1,1 @@
-A simple drawing program.
+Color the squares in the grid by hovering over them!
