@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+#grid {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.square {
+    background-color: aliceblue;
+    border: solid 1px black;
+    flex: none;
+}
